@@ -120,11 +120,25 @@ button.addEventListener('click', function() { // function is used here because w
          ```
     - when ```arguments``` object is needed
      
-#### Template strings
-are used for: 
-    - multiple lines
-    - looping through objects
-    - running functions inside 
+####Template strings
+    are used for: 
+- multiple lines
+- looping through objects
+- running functions inside 
+
+### Destructuring
+- spread object by properties  
+    ``` const person = { 
+            name: "Ann", 
+            birthDate: { 
+                day: 10,
+                month: "Dec", 
+                year: 1998
+            }
+        }
+        const { day: d, month: m, year: y } = person.birthDate; //day - property as found in object, d - variable to store the day in
+        
+    ```
     
              
 
