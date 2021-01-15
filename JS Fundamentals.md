@@ -100,7 +100,7 @@ button.addEventListener('click', function() { // function is used here because w
     })
 })
 ```
-- ***Dont't use arrow functions: ***
+- ***Don't use arrow functions:***
     - as parameter functions (exemple above)
     - as method in objects
         ``` const person = {
@@ -117,5 +117,9 @@ button.addEventListener('click', function() { // function is used here because w
                                             // use Car prototype.summarize = function() {} instead
                 console.log('car info')    
             }
+         ```
+    - when ```arguments``` object is needed
+     
+          
              
 
