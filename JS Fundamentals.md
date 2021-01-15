@@ -139,6 +139,15 @@ button.addEventListener('click', function() { // function is used here because w
             const { day: d, month: m, year: y } = person.birthDate; //day - property as found in object, d - variable to store the day in
         
     ```
+- spread arrays 
+    ``` const person = 'Ann, 10, 12, 1998';
+        cont [name, day, month, year] = person.split(','); 
+    ```
+- rest operator 
+    ``` const person = ['Ann', 10, 12, 1998];
+        const [ name, ...date ] = person;
+    ```
+
     
              
 
