@@ -78,7 +78,7 @@
 - **bind()** bahves like *call() and apply()*, but it doesn't run the function, it ***returns*** the function to be used later on
 ``` obj1.method.bind(ob2, param1, param2)```
 
-###Object.freeze() 
+### Object.freeze() 
 - will create an entire immutable object
 - trying to update object properties won't throw an error, but won't change the object either
 
