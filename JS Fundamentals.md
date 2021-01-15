@@ -86,4 +86,17 @@
 **Note**: 
     - const objects can have properties updated, but not itself 
     - frozen object (built with Object.freeze()) won't have this behaviour
-
+    
+### Arrow function & this
+- arrow functions see the this as the object parent
+``` 
+const button = document.querySelector('.button');
+button.addEventListener('click', function() { // function is used here because we need to use the this as the button 
+                                        // if we had arrow function here, the this would ve been the parent object (in this case window)
+    this.classList.toggle('opening');
+    setTimeout(()=> {   //arrow function is used here because we need the this to the parent object in this case the button
+                        // if we used function here, the this would ve been undefined
+        this.classList.toggle('open');
+    })
+})
+```
