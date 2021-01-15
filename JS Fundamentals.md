@@ -58,6 +58,7 @@
 ### IIFE
 - **I**mmediately **I**nvoked **F**unction **E**xpression
 - executed immediately after it is declared - variables can't be access from the outside environment
+- creates a scope that doesn't allow variables to leak outside in parent scope and maybe overwrite something
 
 ### this
 - holds the object the function is property of
