@@ -100,3 +100,22 @@ button.addEventListener('click', function() { // function is used here because w
     })
 })
 ```
+- ***Dont't use arrow functions: ***
+    - as parameter functions (exemple above)
+    - as method in objects
+        ``` const person = {
+                name: 'defuault', 
+                callName: () => { //this won't work, because this arrow function will point to the parent object
+                                    // use function instead or directly: callname() {} 
+                    console.log(this.name)
+                }
+            }
+        ```
+    - binding functions to prototypes of the classes 
+        ``` class Car { ... } 
+            Car.prototype.summarize = () => { // won't work because this will point to the parent (in this case the window object)
+                                            // use Car prototype.summarize = function() {} instead
+                console.log('car info')    
+            }
+             
+
