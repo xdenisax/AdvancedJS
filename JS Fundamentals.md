@@ -134,9 +134,9 @@ button.addEventListener('click', function() { // function is used here because w
                 day: 10,
                 month: "Dec", 
                 year: 1998
+                }
             }
-        }
-        const { day: d, month: m, year: y } = person.birthDate; //day - property as found in object, d - variable to store the day in
+            const { day: d, month: m, year: y } = person.birthDate; //day - property as found in object, d - variable to store the day in
         
     ```
     
