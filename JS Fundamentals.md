@@ -120,6 +120,11 @@ button.addEventListener('click', function() { // function is used here because w
          ```
     - when ```arguments``` object is needed
      
-          
+#### Template strings
+are used for: 
+    - multiple lines
+    - looping through objects
+    - running functions inside 
+    
              
 
