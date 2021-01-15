@@ -45,6 +45,16 @@
 - **let** = not available outside the block scope, neither outside the function scope
 - **var** = available outside the block scope, but not outside the function scope
 
+### Scope
+- visibility of variables
+- function based
+- where the function is invoked
+- where the function is in variable environment
+
+### Context 
+- object based 
+- where this points
+
 ### IIFE
 - **I**mmediately **I**nvoked **F**unction **E**xpression
 - executed immediately after it is declared - variables can't be access from the outside environment
@@ -68,13 +78,4 @@
 - **bind()** bahves like *call() and apply()*, but it doesn't run the function, it ***returns*** the function to be used later on
 ``` obj1.method.bind(ob2, param1, param2)```
 
-### Scope
-- visibility of variables
-- function based
-- where the function is invoked
-- where the function is in variable environment
-
-### Context 
-- object based 
-- where this points
 
