@@ -106,7 +106,7 @@ button.addEventListener('click', function() { // function is used here because w
         ``` const person = {
                 name: 'defuault', 
                 callName: () => { //this won't work, because this arrow function will point to the parent object
-                                    // use function instead or directly: callname() {} 
+                                    // use function instead or directly: callname() {} <- shorthand
                     console.log(this.name)
                 }
             }
@@ -120,7 +120,7 @@ button.addEventListener('click', function() { // function is used here because w
          ```
     - when ```arguments``` object is needed
      
-####Template strings
+#### Template strings
     are used for: 
 - multiple lines
 - looping through objects
@@ -148,6 +148,32 @@ button.addEventListener('click', function() { // function is used here because w
         const [ name, ...date ] = person;
     ```
 
-    
-             
+### Loops
+- ***for in*** -> loops through everything inside the object, including the prototype 
+- ***for of*** -> loops only through elements of the iterable (arrays, strings, dom nodes, document objects, map, sets)
+- ***using ```entries()```***
+    ``` 
+        for (const [i,cut] of cuts.entries()) {
+            console.log(i, cut);
+         }
+    ````
+
+### Array functtions
+   exemple of nonArrayVector: arguments
+   - Array.from() - creates an array out of nonArrayObject
+   ``` const arrayFromNonArray = Array.from( nonArrayVector, optionalFunctionToProccessEachElement) ```
+   - Array.of() - creates a an array of arguments passed as params 
+        ``` const array = Array.of(1,3,4,56); ```
+   - find() - searches for a element in array 
+        ``` const found = searchIn.find(post => post.code === 1) ```
+   - findIndex() - searches for the index of a specific element 
+        ``` const found = searchIn.findIndex(post => post.code === 1) ```
+   - some() - check if some of the array elements meet a requirement 
+            - returns boolean
+        ``` array.some(element => element.age > 20); ```
+   - every() - check if every array elements meet a requirement 
+            - returns boolean
+        ``` array.every(element => element.age > 20); ```
+   - 
+   
 
