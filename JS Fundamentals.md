@@ -174,6 +174,15 @@ button.addEventListener('click', function() { // function is used here because w
    - every() - check if every array elements meet a requirement 
             - returns boolean
         ``` array.every(element => element.age > 20); ```
-   - 
+   
+   ### Object defining
+   ``` 
+    const tshirt = { 
+        [key]: value, 
+        [`${key}Opposite`]: invertColor(value), 
+        [keys[0]]: value,
+    }
+    
+    ```
    
 
