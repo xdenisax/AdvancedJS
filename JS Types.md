@@ -8,7 +8,16 @@
 4. Undefined
     - missing of deffinition
 5. Symbol
-    ```Symbol('')```
+    - ```!!!``` cannot be looped through
+    ```Symbol('')``` creates unique keys variables
+    ```
+        //code example
+        const classRoom = {
+            [Symbol('Ana')]: {grade: 2, gender:'female'},
+            [Symbol('Ana')]: {grade: 2, gender:'female'}
+        }
+    ```
+    
 
 ***II. Non-primitives***
 = passed by reference
