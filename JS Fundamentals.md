@@ -185,4 +185,10 @@ button.addEventListener('click', function() { // function is used here because w
     
     ```
    
+### Exports
+    - default export => variables can be inported with any name 
+    - named export => variables can be imported only with the original name
+        - variables can be renamed in the file where imported with ```as``` keyword
+        
+
 
