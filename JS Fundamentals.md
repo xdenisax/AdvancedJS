@@ -175,19 +175,20 @@ button.addEventListener('click', function() { // function is used here because w
             - returns boolean
         ``` array.every(element => element.age > 20); ```
    
-   ### Object defining
-   ``` 
+### Object defining
+```
     const tshirt = { 
         [key]: value, 
         [`${key}Opposite`]: invertColor(value), 
         [keys[0]]: value,
     }
-    
-    ```
+```
    
 ### Exports
     - default export => variables can be inported with any name 
+        - {} **NOT** needed
     - named export => variables can be imported only with the original name
+        - {} needed
         - variables can be renamed in the file where imported with ```as``` keyword
         
 
