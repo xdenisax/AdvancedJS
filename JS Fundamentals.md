@@ -193,3 +193,37 @@ button.addEventListener('click', function() { // function is used here because w
         
 
 
+### Generator function
+    - function that can be started or stopped 
+    - contains yield, that sets the "breakpoints" 
+    - to pass each breakpoint, you have to store the generator function inside a variable 
+        ``` const people = listPeople(); ```
+        and then call next on that variable
+        ``` people.next() //will return the first yield as a an object { yieldValue, done:true/false } ``` 
+  
+    example: 
+    
+    ``` function* loop(array) {
+            for(const item of array) {
+                yield item; //will return a item on next() call
+             }
+        }
+   ```
+   
+   
+   example with ajax calls 
+    ``` 
+            function ajax(url) { 
+                fetch(url).then(data => data.json()).then(data => dataGenerator(data)); //      3.    this will fetch and when data is received, this will restart the chain for the url2
+            }
+
+            function* steps(array) {
+                const call1 = yield ajax(url1);   //      2.    this will call the ajax function, that will fetch 
+                const call2 = yield ajax(url2);
+                const call3 = yield ajax(url3);
+            }
+
+            const dataGenerator = steps; 
+            dataGenerator.next(); //      1.     this will trigger the fetch chain
+    ```
+   
