@@ -195,10 +195,12 @@ button.addEventListener('click', function() { // function is used here because w
 
 ### Generator function
     - function that can be started or stopped 
+    - can also be looped through with ``` for...of```
     - contains yield, that sets the "breakpoints" 
     - to pass each breakpoint, you have to store the generator function inside a variable 
+ 
         ``` const people = listPeople(); ```
-        and then call next on that variable
+    -  and then call next on that variable
         ``` people.next() //will return the first yield as a an object { yieldValue, done:true/false } ``` 
   
     example: 
