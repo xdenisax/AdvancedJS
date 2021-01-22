@@ -176,7 +176,8 @@ button.addEventListener('click', function() { // function is used here because w
         ``` array.every(element => element.age > 20); ```
    
 ### Object defining
-``` const tshirt = { 
+``` 
+    const tshirt = { 
         [key]: value, 
         [`${key}Opposite`]: invertColor(value), 
         [keys[0]]: value,
@@ -184,75 +185,79 @@ button.addEventListener('click', function() { // function is used here because w
 ```
    
 ### Exports
-    - default export => variables can be inported with any name 
-        - {} **NOT** needed
-    - named export => variables can be imported only with the original name
+- default export => variables can be inported with any name 
+    - {} **NOT** needed
+- named export => variables can be imported only with the original name
         - {} needed
         - variables can be renamed in the file where imported with ```as``` keyword
         
 
 
 ### Generator function
-    - function that can be started or stopped 
-    - can also be looped through with ```for...of ```
-    - contains yield, that sets the "breakpoints" 
-    - to pass each breakpoint, you have to store the generator function inside a variable 
- 
+- function that can be started or stopped 
+- can also be looped through with ```for...of ```
+- contains yield, that sets the "breakpoints" 
+- to pass each breakpoint, you have to store the generator function inside a variable 
         ``` const people = listPeople(); ```
-    -  and then call next on that variable
+- and then call next on that variable
         ```people.next() //will return the first yield as a an object { yieldValue, done:true/false }``` 
-  
-    example: 
-    
-    ``` function* loop(array) {
-            for(const item of array) {
-                yield item; //will return a item on next() call
-             }
-        }
-   ```
-   
-   
-   example with ajax calls 
-    ``` 
-            function ajax(url) { 
-                fetch(url).then(data => data.json()).then(data => dataGenerator(data)); //      3.    this will fetch and when data is received, this will restart the chain for the url2
-            }
 
-            function* steps(array) {
-                const call1 = yield ajax(url1);   //      2.    this will call the ajax function, that will fetch 
-                const call2 = yield ajax(url2);
-                const call3 = yield ajax(url3);
+  **example:**
+``` 
+    function* loop(array) {
+        for(const item of array) {
+            yield item; //will return a item on next() call
             }
+    }
+ ```
+   ***example with ajax calls***
+``` 
+    function ajax(url) { 
+        fetch(url).then(data => data.json()).then(data => dataGenerator(data)); //      3.    this will fetch and when data is received, this will restart the chain for the url2
+    }
 
-            const dataGenerator = steps; 
-            dataGenerator.next(); //      1.     this will trigger the fetch chain
-    ```
+    function* steps(array) {
+        const call1 = yield ajax(url1);   //      2.    this will call the ajax function, that will fetch 
+        const call2 = yield ajax(url2);
+        const call3 = yield ajax(url3);
+    }
+
+    const dataGenerator = steps; 
+    dataGenerator.next(); //      1.     this will trigger the fetch chain
+```
    
    ### Proxies
-   - allows overriding an object property \
-   ``` const objectToBeProxied = { name: 'Denisa', age: 22 }; 
-        // const proxy = new Proxy( target, handler );
-        const proxy = new Proxy( objectToBeProxied, { 
-            get(objectToBeProxied, name) {
-                return objectToBeProxied[name].toUpperCase(); 
-            }
-            set(objectToBeProxied, name, value) {
-                objectToBeProxied[name] = value.trim(); 
-            }
-        });
-        proxy.name = 'Andreea'; 
-        
-        
-    ### Sets & weak Sets
-    - sets are a kind of unique items array
-    - main properties of sets: ```size```, ```delete('denisa')```, ```clear()```, ```entries()```, ```keys()```, ```has()```, ```add()```
-    - ```values()``` will return a iterator, that can be looped through with for..of or .next()
-    - calling next() on iterator will remove returned items from the iterator
-    
-    - weak Sets are almost the same with sets
-        - they can only contain objects 
-        - cannot be looped through with for..of because they can't generate an iterator
-        - they don't have a clear() method, because they clean themselves up by garbage colector, everytime a reference of the object is deleted
-        
-    
-       
+   - allows overriding an object property 
+``` 
+    const objectToBeProxied = { name: 'Denisa', age: 22 }; 
+    // const proxy = new Proxy( target, handler );
+    const proxy = new Proxy( objectToBeProxied, { 
+        get(objectToBeProxied, name) {
+            return objectToBeProxied[name].toUpperCase(); 
+        }
+        set(objectToBeProxied, name, value) {
+            objectToBeProxied[name] = value.trim(); 
+        }
+    });
+    proxy.name = 'Andreea'; 
+```
+### Sets & weak Sets
+- sets are a kind of unique items array
+- main properties of sets: ```size```, ```delete('denisa')```, ```clear()```, ```entries()```, ```keys()```, ```has()```, ```add()```
+- ```values()``` will return a iterator, that can be looped through with ```for..of``` or ```.next()```
+- calling ```next()``` on iterator will remove returned items from the iterator
+- ***Weak Sets*** are almost the same with sets
+    - they can only contain objects 
+    - cannot be looped through with for..of because they can't generate an iterator
+    - they don't have a ```clear()``` method, because they clean themselves up by garbage colector, everytime a reference of the object is deleted
+
+### Maps and weak Maps
+- maps are similar to ***sets***, but they have a key and a value
+- can have an object as a key
+- can be used as metadata dictionary
+    - for example, a map with a bunch of buttons as keys and the number of clicks per each button as value
+- methods: ```has(key)```, ```get(key)```, ```delete(key)```
+- can be looped through with ```.foreach()``` and ```for..of```
+
+- ***weak map*** doesn't  have a size, is not enumerable and garbage collected as the sets
+- normal map will still hold the deleted element and this will create a memory leak.
