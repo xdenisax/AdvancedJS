@@ -176,8 +176,7 @@ button.addEventListener('click', function() { // function is used here because w
         ``` array.every(element => element.age > 20); ```
    
 ### Object defining
-```
-    const tshirt = { 
+``` const tshirt = { 
         [key]: value, 
         [`${key}Opposite`]: invertColor(value), 
         [keys[0]]: value,
@@ -195,13 +194,13 @@ button.addEventListener('click', function() { // function is used here because w
 
 ### Generator function
     - function that can be started or stopped 
-    - can also be looped through with ``` for...of```
+    - can also be looped through with ```for...of ```
     - contains yield, that sets the "breakpoints" 
     - to pass each breakpoint, you have to store the generator function inside a variable 
  
         ``` const people = listPeople(); ```
     -  and then call next on that variable
-        ``` people.next() //will return the first yield as a an object { yieldValue, done:true/false } ``` 
+        ```people.next() //will return the first yield as a an object { yieldValue, done:true/false }``` 
   
     example: 
     
@@ -229,3 +228,31 @@ button.addEventListener('click', function() { // function is used here because w
             dataGenerator.next(); //      1.     this will trigger the fetch chain
     ```
    
+   ### Proxies
+   - allows overriding an object property \
+   ``` const objectToBeProxied = { name: 'Denisa', age: 22 }; 
+        // const proxy = new Proxy( target, handler );
+        const proxy = new Proxy( objectToBeProxied, { 
+            get(objectToBeProxied, name) {
+                return objectToBeProxied[name].toUpperCase(); 
+            }
+            set(objectToBeProxied, name, value) {
+                objectToBeProxied[name] = value.trim(); 
+            }
+        });
+        proxy.name = 'Andreea'; 
+        
+        
+    ### Sets & weak Sets
+    - sets are a kind of unique items array
+    - main properties of sets: ```size```, ```delete('denisa')```, ```clear()```, ```entries()```, ```keys()```, ```has()```, ```add()```
+    - ```values()``` will return a iterator, that can be looped through with for..of or .next()
+    - calling next() on iterator will remove returned items from the iterator
+    
+    - weak Sets are almost the same with sets
+        - they can only contain objects 
+        - cannot be looped through with for..of because they can't generate an iterator
+        - they don't have a clear() method, because they clean themselves up by garbage colector, everytime a reference of the object is deleted
+        
+    
+       
