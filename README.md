@@ -1,2 +1,2 @@
 # AdvancedJS
-A series of cheatsheets, containing JS popular concepts.
+A series of cheatsheets, containing popular JS concepts.
